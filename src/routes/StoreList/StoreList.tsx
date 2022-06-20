@@ -1,11 +1,17 @@
 import { useParams } from 'react-router-dom'
-import CustomMap from 'components/Map/CustomMap'
 
 import VEGAN_DATA from 'data/data.json'
+import CustomMap from 'components/Map/CustomMap'
 import StoreItem from 'components/StoreItem/StoreItem'
+import RegionTable from 'components/RegionTable/RegionTable'
+
+import styles from './storeList.module.scss'
+import { useRecoilValue } from 'recoil'
+import { regionState } from 'recoil/vegan.atom'
 
 const StoreList = () => {
   const { category } = useParams()
+  const regionInfo = useRecoilValue(regionState)
 
   const veganSort =
     category &&
@@ -17,16 +23,27 @@ const StoreList = () => {
       pesce: '페스코',
     }[category]
 
-  const filteredData = Object.values(VEGAN_DATA.datas).filter((store) => store.food_menu.includes(`${veganSort}`))
+  const categoryFilteredData = Object.values(VEGAN_DATA.datas).filter((store) =>
+    store.food_menu.includes(`${veganSort}`)
+  )
+
+  const regionData =
+    regionInfo === '전체'
+      ? categoryFilteredData
+      : categoryFilteredData.filter((region) => region.rdn_code_nm.includes(`${regionInfo}`))
 
   return (
-    <div>
-      <CustomMap baseData={filteredData} />
-      <h1>여기는 {category}</h1>
-      {filteredData.map((item) => (
-        <StoreItem key={`item-${item.crtfc_upso_mgt_sno}`} data={item} />
-      ))}
-    </div>
+    <section>
+      <CustomMap baseData={categoryFilteredData} />
+      <div className={styles.underMap}>
+        <h1>여기는 {category}</h1>
+        <RegionTable />
+        {regionData.map((item) => (
+          <StoreItem key={`item-${item.crtfc_upso_mgt_sno}`} data={item} />
+        ))}
+        {regionData.length === 0 && <p>No Datas!</p>}
+      </div>
+    </section>
   )
 }
 

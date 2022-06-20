@@ -5,3 +5,8 @@ export const popUpInfoState = atom<IBasicData | null>({
   key: '#popUpInfoState',
   default: null,
 })
+
+export const regionState = atom<string | undefined>({
+  key: '#regionState',
+  default: '전체',
+})
