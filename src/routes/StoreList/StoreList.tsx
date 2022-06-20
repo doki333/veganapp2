@@ -1,6 +1,8 @@
 import { useParams } from 'react-router-dom'
+import CustomMap from 'components/Map/CustomMap'
 
 import VEGAN_DATA from 'data/data.json'
+import StoreItem from 'components/StoreItem/StoreItem'
 
 const StoreList = () => {
   const { category } = useParams()
@@ -16,13 +18,14 @@ const StoreList = () => {
     }[category]
 
   const filteredData = Object.values(VEGAN_DATA.datas).filter((store) => store.food_menu.includes(`${veganSort}`))
-  console.log(filteredData)
 
   return (
     <div>
+      <CustomMap baseData={filteredData} />
       <h1>여기는 {category}</h1>
-      <section>맵이 있을 곳</section>
-      스토어 리스트가 나올 곳..
+      {filteredData.map((item) => (
+        <StoreItem key={`item-${item.crtfc_upso_mgt_sno}`} data={item} />
+      ))}
     </div>
   )
 }

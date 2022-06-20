@@ -10,7 +10,7 @@ const Main = () => {
       <Link to='/lacto'>락토</Link>
       <Link to='/lactoOvo'>락토오보</Link>
       <Link to='/ovo'>오보</Link>
-      <Link to='/pescs'>페스코</Link>
+      <Link to='/pesce'>페스코</Link>
     </div>
   )
 }
