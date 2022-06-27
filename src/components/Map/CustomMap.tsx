@@ -1,12 +1,5 @@
 import React, { useState } from 'react'
-import Map, {
-  GeolocateControl,
-  NavigationControl,
-  ViewStateChangeEvent,
-  Popup,
-  GeoJSONSourceRaw,
-  FillLayer,
-} from 'react-map-gl'
+import Map, { GeolocateControl, NavigationControl, ViewStateChangeEvent, Popup } from 'react-map-gl'
 import { useRecoilState } from 'recoil'
 import { popUpInfoState } from 'recoil/vegan.atom'
 

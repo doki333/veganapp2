@@ -4,11 +4,11 @@ import VEGAN_DATA from 'data/data.json'
 import CustomMap from 'components/Map/CustomMap'
 import StoreItem from 'components/StoreItem/StoreItem'
 import RegionTable from 'components/RegionTable/RegionTable'
+import ColorPanel from './ColorPanel/ColorPanel'
 
 import styles from './storeList.module.scss'
 import { useRecoilValue } from 'recoil'
 import { regionState } from 'recoil/vegan.atom'
-import ColorPanel from './ColorPanel/ColorPanel'
 
 const StoreList = () => {
   const { category } = useParams()
@@ -40,9 +40,11 @@ const StoreList = () => {
       <div className={styles.underMap}>
         <h1>{veganSort}</h1>
         <RegionTable />
-        {regionData.map((item) => (
-          <StoreItem key={`item-${item.crtfc_upso_mgt_sno}`} data={item} />
-        ))}
+        <ul className={styles.storeCards}>
+          {regionData.map((item) => (
+            <StoreItem key={`item-${item.crtfc_upso_mgt_sno}`} data={item} />
+          ))}
+        </ul>
         {regionData.length === 0 && <p>No Datas!</p>}
       </div>
     </section>
