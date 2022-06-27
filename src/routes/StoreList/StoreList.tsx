@@ -4,15 +4,19 @@ import VEGAN_DATA from 'data/data.json'
 import CustomMap from 'components/Map/CustomMap'
 import StoreItem from 'components/StoreItem/StoreItem'
 import RegionTable from 'components/RegionTable/RegionTable'
+import PageNumber from 'components/PageNumber/PageNumber'
 import ColorPanel from './ColorPanel/ColorPanel'
 
 import styles from './storeList.module.scss'
 import { useRecoilValue } from 'recoil'
-import { regionState } from 'recoil/vegan.atom'
+import { pageState, regionState } from 'recoil/vegan.atom'
 
 const StoreList = () => {
   const { category } = useParams()
   const regionInfo = useRecoilValue(regionState)
+  const pageNumber = useRecoilValue(pageState)
+  const indexOfLastData = pageNumber * 18
+  const indexOfFirstData = indexOfLastData - 18
 
   const veganSort =
     category &&
@@ -33,6 +37,8 @@ const StoreList = () => {
       ? categoryFilteredData
       : categoryFilteredData.filter((region) => region.rdn_code_nm.includes(`${regionInfo}`))
 
+  const perPageData = regionData.slice(indexOfFirstData, indexOfLastData)
+
   return (
     <section>
       <CustomMap baseData={regionData} />
@@ -41,12 +47,13 @@ const StoreList = () => {
         <h1>{veganSort}</h1>
         <RegionTable />
         <ul className={styles.storeCards}>
-          {regionData.map((item) => (
+          {perPageData.map((item) => (
             <StoreItem key={`item-${item.crtfc_upso_mgt_sno}`} data={item} />
           ))}
         </ul>
         {regionData.length === 0 && <p>No Datas!</p>}
       </div>
+      {regionData.length !== 0 && <PageNumber dataLength={regionData.length} />}
     </section>
   )
 }

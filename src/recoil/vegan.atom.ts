@@ -10,3 +10,8 @@ export const regionState = atom<string | undefined>({
   key: '#regionState',
   default: '전체',
 })
+
+export const pageState = atom<number>({
+  key: '#pageState',
+  default: 1,
+})

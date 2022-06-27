@@ -33,32 +33,30 @@ const CustomMap = ({ baseData }: IMapProps) => {
   }
 
   return (
-    <div>
-      <Map
-        initialViewState={viewport}
-        mapboxAccessToken={MAP_TOKEN}
-        style={{ width: '100vw', height: '50vh' }}
-        onMove={handleMoveMap}
-        mapStyle='mapbox://styles/mapbox/light-v10'
-      >
-        {baseData.map((place) => (
-          <CustomMarker key={`store-${place.crtfc_upso_mgt_sno}`} data={place} />
-        ))}
-        {popUpInfo && (
-          <Popup
-            anchor='top'
-            longitude={popUpInfo.longitude}
-            latitude={popUpInfo.latitude}
-            closeOnClick={false}
-            onClose={handleClose}
-          >
-            <StorePopUp info={popUpInfo} />
-          </Popup>
-        )}
-        <GeolocateControl position='top-left' />
-        <NavigationControl position='top-left' />
-      </Map>
-    </div>
+    <Map
+      initialViewState={viewport}
+      mapboxAccessToken={MAP_TOKEN}
+      style={{ width: '100vw', height: '50vh', minWidth: '360px' }}
+      onMove={handleMoveMap}
+      mapStyle='mapbox://styles/mapbox/light-v10'
+    >
+      {baseData.map((place) => (
+        <CustomMarker key={`store-${place.crtfc_upso_mgt_sno}`} data={place} />
+      ))}
+      {popUpInfo && (
+        <Popup
+          anchor='top'
+          longitude={popUpInfo.longitude}
+          latitude={popUpInfo.latitude}
+          closeOnClick={false}
+          onClose={handleClose}
+        >
+          <StorePopUp info={popUpInfo} />
+        </Popup>
+      )}
+      <GeolocateControl position='top-left' />
+      <NavigationControl position='top-left' />
+    </Map>
   )
 }
 

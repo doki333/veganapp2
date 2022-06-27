@@ -1,0 +1,41 @@
+@use '/src/styles/constants/colors';
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 350px;
+  margin-bottom: 30px;
+
+  .pageList {
+    display: inline-block;
+    width: 38px;
+    height: 38px;
+    margin: 0 4px;
+    font-size: 16px;
+    line-height: 38px;
+    text-align: center;
+    text-decoration: none;
+
+    a {
+      color: colors.$BLACK;
+    }
+
+    &.isPageActive {
+      background: colors.$VEGAN_CARD_BG;
+    }
+  }
+
+  .pagePrev,
+  .pageNext {
+    display: none;
+  }
+
+  .pageFirst,
+  .pageLast {
+    width: 44px;
+    height: 30px;
+    line-height: 30px;
+    outline: 4px solid colors.$VEGAN_CARD_BG;
+  }
+}

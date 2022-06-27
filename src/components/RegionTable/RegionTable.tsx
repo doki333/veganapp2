@@ -1,6 +1,6 @@
 import { MouseEvent } from 'react'
-import { useRecoilState } from 'recoil'
-import { regionState } from 'recoil/vegan.atom'
+import { useRecoilState, useSetRecoilState } from 'recoil'
+import { pageState, regionState } from 'recoil/vegan.atom'
 import styles from './regionTable.module.scss'
 
 const seoulArea = [
@@ -34,8 +34,10 @@ const seoulArea = [
 
 const RegionTable = () => {
   const [regionInfo, setRegionInfoState] = useRecoilState(regionState)
+  const setPageNum = useSetRecoilState(pageState)
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
     setRegionInfoState(e.currentTarget.dataset.keyword)
+    setPageNum(1)
   }
   return (
     <ul className={styles.regionTable}>
