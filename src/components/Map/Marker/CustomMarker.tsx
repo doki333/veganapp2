@@ -17,12 +17,12 @@ const CustomMarker = ({ data }: IPinsProps) => {
   const colorSort =
     (sortWord &&
       {
-        중국식: '#F46278',
-        한식: '#F59562',
+        한식: '#6762F5',
+        중국식: '#7AF562',
         카페: '#F4DE62',
-        경양식: '#7AF562',
+        경양식: '#F59562',
       }[sortWord]) ??
-    '#6762F5'
+    '#F46278'
 
   const setPopUpInfo = useSetRecoilState(popUpInfoState)
   const handleClickInfo = () => setPopUpInfo(data)

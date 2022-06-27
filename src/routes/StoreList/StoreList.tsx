@@ -8,6 +8,7 @@ import RegionTable from 'components/RegionTable/RegionTable'
 import styles from './storeList.module.scss'
 import { useRecoilValue } from 'recoil'
 import { regionState } from 'recoil/vegan.atom'
+import ColorPanel from './ColorPanel/ColorPanel'
 
 const StoreList = () => {
   const { category } = useParams()
@@ -34,9 +35,10 @@ const StoreList = () => {
 
   return (
     <section>
-      <CustomMap baseData={categoryFilteredData} />
+      <CustomMap baseData={regionData} />
+      <ColorPanel />
       <div className={styles.underMap}>
-        <h1>여기는 {category}</h1>
+        <h1>{veganSort}</h1>
         <RegionTable />
         {regionData.map((item) => (
           <StoreItem key={`item-${item.crtfc_upso_mgt_sno}`} data={item} />

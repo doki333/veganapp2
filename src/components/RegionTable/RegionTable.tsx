@@ -1,7 +1,6 @@
 import { MouseEvent } from 'react'
-import { useRecoilState, useSetRecoilState } from 'recoil'
+import { useRecoilState } from 'recoil'
 import { regionState } from 'recoil/vegan.atom'
-import { cx } from 'styles'
 import styles from './regionTable.module.scss'
 
 const seoulArea = [
@@ -45,6 +44,7 @@ const RegionTable = () => {
           <button type='button' onClick={handleClick} data-keyword={area}>
             {area}
           </button>
+          {area === regionInfo && <span className={styles.isRegionActive} />}
         </li>
       ))}
     </ul>

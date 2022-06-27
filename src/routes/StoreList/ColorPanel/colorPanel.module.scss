@@ -1,0 +1,75 @@
+@use '/src/styles/constants/colors';
+
+.colorPanel {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 50px;
+  margin: 20px auto;
+  background: #f2fbff;
+
+  li:first-child {
+    position: relative;
+
+    span {
+      // position: absolute;
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: colors.$VEGAN_KOREA;
+      border-radius: 50%;
+    }
+  }
+
+  li:nth-child(2) {
+    position: relative;
+
+    span {
+      // position: absolute;
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: colors.$VEGAN_CHINA;
+      border-radius: 50%;
+    }
+  }
+
+  li:nth-child(3) {
+    position: relative;
+
+    span {
+      // position: absolute;
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: colors.$VEGAN_CAFE;
+      border-radius: 50%;
+    }
+  }
+
+  li:nth-child(4) {
+    position: relative;
+
+    span {
+      // position: absolute;
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: colors.$VEGAN_RESTAURANT;
+      border-radius: 50%;
+    }
+  }
+
+  li:last-child {
+    position: relative;
+
+    span {
+      // position: absolute;
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: colors.$VEGAN_ETC;
+      border-radius: 50%;
+    }
+  }
+}

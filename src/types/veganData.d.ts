@@ -25,10 +25,3 @@ export interface IBasicData {
   crtfc_gbn_nm: string
   food_menu: string
 }
-
-export interface IColorData {
-  경양식: string
-  한식: string
-  카페: string
-  [key: string]: string
-}
