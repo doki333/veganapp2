@@ -1,4 +1,14 @@
 .detailWrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, auto));
+  align-items: center;
+  height: 100vh;
+
+  .detailInfo {
+    width: 100%;
+    background: antiquewhite;
+  }
+
   .detailAddr {
     display: none;
   }
