@@ -1,5 +1,17 @@
 .imgCarousel {
+  position: relative;
   width: 100%;
-  // min-width: 100vw;
-  height: 500px;
+
+  > button {
+    position: absolute;
+    z-index: 1000;
+
+    &:first-child {
+      left: 10px;
+    }
+
+    &:nth-child(3) {
+      right: 10px;
+    }
+  }
 }

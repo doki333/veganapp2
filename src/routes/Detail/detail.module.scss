@@ -1,15 +1,52 @@
+@use '/src/styles/constants/colors';
+
 .detailWrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, auto));
+  grid-template-rows: 50vh;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 50vw));
+  align-content: center;
   align-items: center;
+  justify-content: center;
   height: 100vh;
+  overflow-y: scroll;
 
   .detailInfo {
     width: 100%;
-    background: antiquewhite;
-  }
+    padding: 10px;
+    text-align: left;
 
-  .detailAddr {
-    display: none;
+    .detailAddr {
+      display: none;
+    }
+
+    h1 {
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 30px;
+      font-weight: 700;
+      background: colors.$VEGAN_CARD_BG;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+
+    dl {
+      display: block;
+      padding-left: 10px;
+      margin-bottom: 10px;
+
+      dt {
+        margin-bottom: 8px;
+        font-size: 20px;
+
+        span {
+          box-shadow: inset 0 -10px 0 colors.$VEGAN_CARD_BG;
+        }
+      }
+
+      dd {
+        font-size: 16px;
+        word-break: break-word;
+      }
+    }
   }
 }

@@ -36,9 +36,9 @@ const CustomMap = ({ baseData }: IMapProps) => {
     <Map
       initialViewState={viewport}
       mapboxAccessToken={MAP_TOKEN}
-      style={{ width: '100vw', height: '50vh', minWidth: '360px' }}
+      style={{ width: '100vw', height: '50vh', minWidth: '320px' }}
       onMove={handleMoveMap}
-      mapStyle='mapbox://styles/mapbox/light-v10'
+      mapStyle='mapbox://styles/mapbox/streets-v11'
     >
       {baseData.map((place) => (
         <CustomMarker key={`store-${place.crtfc_upso_mgt_sno}`} data={place} />

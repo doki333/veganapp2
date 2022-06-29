@@ -19,7 +19,7 @@ const StoreItem = ({ data }: IItemProps) => {
         />
       </div>
       <div className={styles.infoWrapper}>
-        <span>{data.upso_nm}</span>
+        <span className={styles.mainStoreName}>{data.upso_nm}</span>
         <dl>
           <dt>Tel</dt>
           <dd>{data.tel_no}</dd>
