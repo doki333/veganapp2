@@ -4,10 +4,9 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  min-width: 360px;
+  min-width: 320px;
   height: 50px;
-  margin: 20px auto;
-  background: #f2fbff;
+  background: colors.$GRAYE;
 
   li:first-child {
     position: relative;
