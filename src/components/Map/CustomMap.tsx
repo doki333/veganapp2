@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Map, { GeolocateControl, NavigationControl, ViewStateChangeEvent, Popup } from 'react-map-gl'
-// eslint-disable-line import/no-webpack-loader-syntax
 
 import { useRecoilState } from 'recoil'
 import { popUpInfoState } from 'recoil/vegan.atom'
@@ -9,9 +8,18 @@ import StorePopUp from 'components/StorePopUp/StorePopUp'
 import CustomMarker from './Marker/CustomMarker'
 import { IBasicData } from 'types/veganData'
 
+// added the following 6 lines.
+import mapboxgl from 'mapbox-gl'
+
 interface IMapProps {
   baseData: IBasicData[]
 }
+
+// The following is required to stop "npm build" from transpiling mapbox code.
+// notice the exclamation point in the import.
+// @ts-ignore
+// eslint-disable-next-line import/no-webpack-loader-syntax, import/no-unresolved
+mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default
 
 const MAP_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN
 const basicViewPort = {
