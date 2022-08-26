@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 import VEGAN_DATA from 'data/data.json'
 import CustomMap from 'components/Map/CustomMap'
@@ -41,6 +41,9 @@ const StoreList = () => {
 
   return (
     <section>
+      <Link to='/bookmark' className={styles.bkLink}>
+        ⭐
+      </Link>
       <CustomMap baseData={regionData} />
       <ColorPanel />
       <div className={styles.underMap}>

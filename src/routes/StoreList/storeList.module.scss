@@ -1,3 +1,17 @@
+@use '/src/styles/constants/colors';
+
+.bkLink {
+  position: fixed;
+  top: 30%;
+  left: 0;
+  z-index: 10;
+  padding: 15px;
+  background: colors.$VEGAN_CARD_DARK;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 20%) 0 2px 6px 0;
+}
+
 .underMap {
   min-width: 320px;
   padding: 20px;

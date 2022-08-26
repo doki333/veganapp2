@@ -46,6 +46,15 @@
           color: colors.$VEGAN_CARD_BG;
         }
       }
+
+      button {
+        padding: 3px 15px;
+        margin-left: 5px;
+        font-size: 17px;
+        color: colors.$WHITE;
+        background: colors.$RED;
+        border-radius: 4px;
+      }
     }
 
     span {

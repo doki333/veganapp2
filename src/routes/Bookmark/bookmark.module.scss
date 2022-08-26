@@ -1,0 +1,8 @@
+.bookmarkList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  grid-auto-rows: minmax(130px, auto);
+  align-items: center;
+  justify-items: center;
+  margin-top: 20px;
+}

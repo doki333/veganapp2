@@ -15,3 +15,8 @@ export const pageState = atom<number>({
   key: '#pageState',
   default: 1,
 })
+
+export const bookmarkInfoState = atom<IBasicData[] | []>({
+  key: '#bookmarkInfoState',
+  default: [],
+})

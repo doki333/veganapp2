@@ -2,11 +2,31 @@ import { useParams } from 'react-router-dom'
 import VEGAN_DATA from 'data/data.json'
 import styles from './detail.module.scss'
 import ImgCarousel from 'components/ImgCarousel/ImgCarousel'
+import { useRecoilState } from 'recoil'
+import { bookmarkInfoState } from 'recoil/vegan.atom'
+import { useState } from 'react'
 
 const Detail = () => {
   const { id } = useParams()
   const filteredDB = Object.values(VEGAN_DATA.datas).filter((store) => store.crtfc_upso_mgt_sno === Number(id))[0]
+  const [bookmark, setBookmark] = useRecoilState(bookmarkInfoState)
+
+  const filteredBK = bookmark.filter((store) => store.crtfc_upso_mgt_sno === Number(id))[0]
+  const isStarred = filteredBK ? '⭐' : '⚝'
+  const [star, setStar] = useState(isStarred)
+
   if (!filteredDB) return null
+
+  const handleClickBookmark = () => {
+    if (filteredBK) {
+      const filteredBM = bookmark.filter((store) => store.crtfc_upso_mgt_sno !== Number(id))
+      setBookmark(filteredBM)
+      setStar('⚝')
+      return
+    }
+    setStar('⭐')
+    setBookmark((prev) => [...prev, filteredDB])
+  }
 
   return (
     <section className={styles.detailWrapper}>
@@ -14,8 +34,9 @@ const Detail = () => {
       <div className={styles.detailInfo}>
         <div className={styles.nameWrapper}>
           <h1>{filteredDB.upso_nm}</h1>
-          <button type='button'>&#9734;</button>
-          {/* <button type='button'>&#9733;</button> */}
+          <button type='button' onClick={handleClickBookmark}>
+            {star}
+          </button>
         </div>
         <dl>
           <dt>

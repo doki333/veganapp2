@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { useRecoilState } from 'recoil'
+import { bookmarkInfoState } from 'recoil/vegan.atom'
 import { IBasicData } from 'types/veganData'
 import styles from './storeItem.module.scss'
 
@@ -9,6 +11,11 @@ interface IItemProps {
 
 const StoreItem = ({ data }: IItemProps) => {
   const { pathname } = useLocation()
+  const [bm, setBm] = useRecoilState(bookmarkInfoState)
+  const handleClickDelete = () => {
+    const filteredBM = bm.filter((store) => store.crtfc_upso_mgt_sno !== data.crtfc_upso_mgt_sno)
+    setBm(filteredBM)
+  }
 
   return (
     <li className={styles.storeItemWrapper}>
@@ -30,6 +37,11 @@ const StoreItem = ({ data }: IItemProps) => {
         </dl>
         <div className={styles.linkBlock}>
           <Link to={`${pathname}/${data.crtfc_upso_mgt_sno}`}>바로가기</Link>
+          {pathname === '/bookmark' && (
+            <button type='button' onClick={handleClickDelete}>
+              삭제
+            </button>
+          )}
         </div>
       </div>
     </li>
