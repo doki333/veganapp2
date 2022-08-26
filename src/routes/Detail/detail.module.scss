@@ -19,14 +19,51 @@
       display: none;
     }
 
-    h1 {
-      padding: 10px;
+    .nameWrapper {
+      position: relative;
+      padding: 15px 10px;
       margin-bottom: 10px;
-      font-size: 30px;
+      font-size: 28px;
       font-weight: 700;
       background: colors.$VEGAN_CARD_BG;
       border-top-left-radius: 8px;
       border-top-right-radius: 8px;
+
+      h1 {
+        width: 80%;
+      }
+
+      button {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        z-index: 1;
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
+        font-weight: 700;
+        color: colors.$VEGAN_CARD_DARK;
+        background: colors.$VEGAN_BTN_BG;
+        border-radius: 8px;
+        transform: translate(-50%, -50%);
+
+        &:active {
+          transform: translate(-61%, -43%);
+        }
+      }
+
+      &::after {
+        position: absolute;
+        top: 26px;
+        right: 24px;
+        z-index: 0;
+        width: 40px;
+        height: 40px;
+        content: '';
+        background: colors.$GRAYA;
+        border-radius: 8px;
+        // transform: translate(0, -82%);
+      }
     }
 
     dl {

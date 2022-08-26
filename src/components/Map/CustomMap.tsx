@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import Map, { GeolocateControl, NavigationControl, ViewStateChangeEvent, Popup } from 'react-map-gl'
+// eslint-disable-line import/no-webpack-loader-syntax
+
 import { useRecoilState } from 'recoil'
 import { popUpInfoState } from 'recoil/vegan.atom'
 

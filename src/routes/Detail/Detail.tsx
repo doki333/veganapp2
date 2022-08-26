@@ -12,7 +12,11 @@ const Detail = () => {
     <section className={styles.detailWrapper}>
       <ImgCarousel />
       <div className={styles.detailInfo}>
-        <h1>{filteredDB.upso_nm}</h1>
+        <div className={styles.nameWrapper}>
+          <h1>{filteredDB.upso_nm}</h1>
+          <button type='button'>&#9734;</button>
+          {/* <button type='button'>&#9733;</button> */}
+        </div>
         <dl>
           <dt>
             <span>Sort</span>
