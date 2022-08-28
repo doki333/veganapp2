@@ -25,3 +25,12 @@ export interface IBasicData {
   crtfc_gbn_nm: string
   food_menu: string
 }
+
+export interface IInfoObj {
+  vegan: string[]
+  lactoOvo: string[]
+  ovo: string[]
+  lacto: string[]
+  pesce: string[]
+  [key: string]: string[]
+}
