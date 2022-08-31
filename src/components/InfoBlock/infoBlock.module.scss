@@ -2,11 +2,44 @@
 
 .infoBlock {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 0;
+  margin-top: 13px;
+  background: colors.$VEGAN_CARD_DARK;
+  border-radius: 40px;
+
+  .leftWing {
+    display: flex;
+    overflow: hidden;
+
+    p {
+      padding: 5px 0;
+      margin-left: 10px;
+      font-size: 18px;
+      text-align: left;
+    }
+
+    .infoImoji {
+      position: relative;
+      left: 5px;
+      width: 52px;
+      height: 52px;
+      margin-right: 10px;
+      font-size: 36px;
+      line-height: 52px;
+      vertical-align: middle;
+      background: white;
+      border-radius: 50%;
+    }
+  }
 
   .dietsWrapper {
     display: inline-flex;
-    width: 200px;
-    overflow: scroll;
+    // width: 100%;
+    // min-width: 180px;
+    // overflow: hidden;
+    cursor: grab;
 
     li {
       padding: 4px 10px;
@@ -18,5 +51,9 @@
 
   a {
     display: block;
+    margin: 0 10px;
+    font-size: 20px;
+    font-weight: 700;
+    text-shadow: 2px 1px 1px colors.$VEGAN_BTN_BG;
   }
 }

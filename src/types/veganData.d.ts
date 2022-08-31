@@ -34,3 +34,12 @@ export interface IInfoObj {
   pesce: string[]
   [key: string]: string[]
 }
+
+export interface IImojiObj {
+  vegan: string
+  lactoOvo: string
+  ovo: string
+  lacto: string
+  pesce: string
+  [key: string]: string
+}

@@ -14,6 +14,8 @@ const DietModal = ({ handleClickQuestionMark }: IDietModal) => {
       <img
         ref={imgRef}
         alt='vegetarian diet type table'
+        width='100%'
+        height='100%'
         src='https://yourveganjourney.com/wp-content/uploads/2019/07/Big-PBD-Categories.png'
       />
     </div>
