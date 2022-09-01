@@ -13,8 +13,37 @@
    * 마커를 누르고 상세페이지로 이동
    * 서울 자치구 별로 식당 필터링 가능   
 - 식당 별 메뉴와 전화번호, 주소 등 제공   
+- 즐겨찾기 등록, 조회 기능    
+    
 
-3. 폴더 구조 (추후 수정)   
+
+3. 폴더 구조 (추후 수정)  
+
+```` 
+src
+├─components
+│  ├─DietModal
+│  ├─ImgCarousel
+│  ├─InfoBlock
+│  ├─Map
+│  │  └─Marker
+│  ├─PageNumber
+│  ├─RegionTable
+│  ├─StoreItem
+│  └─StorePopUp
+├─data
+├─recoil
+├─routes
+│  ├─Bookmark
+│  ├─Detail
+│  ├─Main
+│  └─StoreList
+│      └─ColorPanel
+├─styles
+│  ├─base
+│  └─constants
+└─types
+````
 
 4. 라이브러리
 - classnames : 조건부 클래스 네임 지정   
@@ -22,6 +51,7 @@
 - react-js-pagination : 식당 목록 페이지네이션   
 - react-slick, slick-carousel : 캐러셀      
 - recoil: 전역 관리 라이브러리      
+- react-use: modal 열고 닫는 hook 관련 라이브러리    
+- worker-loader: mapbox babel 오류 해결을 위한 라이브러리    
+- react-indiana-drag-scroll : 가로 스크롤 라이브러리    
 
-5. 진행사항   
-- 세부 디자인 디테일 (ing...)   
