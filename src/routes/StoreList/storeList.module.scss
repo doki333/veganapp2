@@ -18,7 +18,10 @@
 
   h1 {
     margin: 10px 0;
-    font-size: 24px;
+    font-size: 28px;
+    font-weight: 700;
+    color: colors.$VEGAN_CARD_DARK;
+    text-shadow: 3px 2px 0 colors.$BLACK;
     text-transform: uppercase;
   }
 

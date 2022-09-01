@@ -47,7 +47,7 @@ const StoreList = () => {
       <CustomMap baseData={regionData} />
       <ColorPanel />
       <div className={styles.underMap}>
-        <h1>{veganSort}</h1>
+        <h1>{category}</h1>
         <RegionTable />
         <ul className={styles.storeCards}>
           {perPageData.map((item) => (

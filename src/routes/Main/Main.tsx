@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import DietModal from 'components/DietModal/DietModal'
+import InfoBlocks from 'components/InfoBlock/InfoBlock'
 import Portal from 'components/DietModal/Portal'
-import InfoBlock from 'components/InfoBlock/InfoBlock'
 import styles from './main.module.scss'
+
+const dietTypeArr = ['vegan', 'lacto', 'lactoOvo', 'ovo', 'pesce']
 
 const Main = () => {
   const [isShown, setIsShown] = useState(false)
@@ -16,11 +18,9 @@ const Main = () => {
         ?
       </button>
       <div className={styles.infoWrapper}>
-        <InfoBlock keyword='vegan' />
-        <InfoBlock keyword='lacto' />
-        <InfoBlock keyword='lactoOvo' />
-        <InfoBlock keyword='ovo' />
-        <InfoBlock keyword='pesce' />
+        {dietTypeArr.map((diet) => (
+          <InfoBlocks key={`infoblocks-${diet}`} keyword={diet} />
+        ))}
       </div>
       <Portal>{isShown && <DietModal handleClickQuestionMark={handleClickQuestionMark} />}</Portal>
     </section>

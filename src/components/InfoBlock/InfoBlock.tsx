@@ -6,8 +6,8 @@ import styles from './infoBlock.module.scss'
 const imojiObj: IImojiObj = {
   vegan: '🥑',
   lactoOvo: '🥛',
-  ovo: '🧀',
-  lacto: '🥚',
+  ovo: '🥚',
+  lacto: '🧀',
   pesce: '🐟',
 }
 
@@ -23,23 +23,21 @@ interface IInfo {
   keyword: string
 }
 
-const InfoBlock = ({ keyword }: IInfo) => {
+const InfoBlocks = ({ keyword }: IInfo) => {
   return (
     <div className={styles.infoBlock}>
       <div className={styles.leftWing}>
         <div className={styles.infoImoji}>{imojiObj[keyword]}</div>
-        <div>
-          <p>{keyword}</p>
-          <ScrollContainer className={styles.dietsWrapper}>
-            {infoObj[keyword].map((list) => (
-              <li key={`listThing-${list}`}>{list}</li>
-            ))}
-          </ScrollContainer>
-        </div>
+        <p>{keyword}</p>
+        <ScrollContainer className={styles.dietsWrapper}>
+          {infoObj[keyword].map((list) => (
+            <li key={`listThing-${list}`}>{list}</li>
+          ))}
+        </ScrollContainer>
       </div>
       <Link to={`/${keyword}`}>GO</Link>
     </div>
   )
 }
 
-export default InfoBlock
+export default InfoBlocks
