@@ -1,6 +1,6 @@
 # Vegan Map App With React   
 
-> 서울시 지정업소 현황 데이터(https://data.seoul.go.kr/dataList/OA-2741/S/1/datasetView.do) 를 바탕으로 한 채식음식점 지도 웹앱입니다. 예전에 짜놓은 코드를 새로 리팩토링 했습니다.
+> 서울시 지정업소 현황 데이터(https://data.seoul.go.kr/dataList/OA-2741/S/1/datasetView.do) 를 바탕으로 한 채식음식점 지도 웹앱입니다. 예전에 짜놓은 코드에서 타입스크립트로 작성하고, 클래스 컴포넌트를 사용했던 것을 함수형 컴포넌트로 수정하였습니다. 또한 재사용할 수 있는 것들은 컴포넌트 단위로 재사용할 수 있게 수정하였습니다.
 
 1. 기술 스택   
 <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=black">
